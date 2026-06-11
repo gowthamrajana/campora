@@ -1,10 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⛺Campora</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/home.css">
 </head>
-<body>
+<body class="home-body">
 
-<h1>home</h1>
+  <div class="overlay">
+    <nav class="navbar-container">
+      <div class="brand">⛺Campora</div>
+      <div class="nav-links">
+        <a href="/" class="nav-item active">Home</a>
+        <a href="/campgrounds" class="nav-item">Campgrounds</a>
+        <% if(!currentUser) { %>
+          <a href="/login" class="nav-item">Login</a>
+          <a href="/register" class="nav-item">Register</a>
+        <% } else { %>
+          <a href="/logout" class="nav-item">Logout</a>
+        <% } %>
+      </div>
+    </nav>
+
+   
+      <section class="hero">
+        <h1>Find Your Next Adventure</h1>
+        <p>Discover beautiful campgrounds, share experiences, and plan your perfect outdoor experience.</p>
+        <div class="hero-buttons">
+          <a href="/campgrounds" class="btn btn-primary btn-lg">Explore Campgrounds</a>
+          
+        </div>
+      </section>
+
+    <section class="features">
+      <div class="feature-card">
+        <h3>🏕️ Explore</h3>
+        <p>Find hidden camping spots across the world.</p>
+      </div>
+      <div class="feature-card">
+        <h3>📍 Locations</h3>
+        <p>Discover places near you or plan your next trip.</p>
+      </div>
+      <div class="feature-card">
+        <h3>⭐ Reviews</h3>
+        <p>Read real experiences from fellow travelers.</p>
+      </div>
+    </section>
+
+    
+      
+
+    <footer class="footer">
+        <p>© 2026 Campora</p>
+        <p class="credit">Designed and developed by <strong>Gowtham Rajana</strong></p>
+    </footer>
+  </div>
 </body>
 </html>

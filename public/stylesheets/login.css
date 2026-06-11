@@ -1,0 +1,88 @@
+body{
+  font-family: 'Outfit', sans-serif;
+  background: radial-gradient(circle at top, #e2e8f0, #f8fafc);
+}
+
+/* center page */
+.login-page{
+  min-height: 100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+/* glass card */
+.login-card{
+  width: 440px;
+  border-radius: 20px;
+  overflow: hidden;
+
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.3);
+
+  box-shadow: 0 25px 60px rgba(0,0,0,0.18);
+
+  transition: 0.3s ease;
+}
+
+.login-card:hover{
+  transform: translateY(-5px);
+}
+
+/* image */
+.login-img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+/* title */
+.login-title{
+  font-weight:700;
+  text-align:center;
+  margin-bottom:5px;
+}
+
+.login-subtitle{
+  text-align:center;
+  font-size:14px;
+  color:#6b7280;
+  margin-bottom:20px;
+}
+
+/* inputs */
+.input-modern{
+  border-radius: 12px;
+  padding: 11px;
+  border: 1px solid #e5e7eb;
+  transition:0.2s;
+}
+
+.input-modern:focus{
+  border-color:#9ca3af;
+  box-shadow: 0 0 0 4px rgba(156,163,175,0.2);
+}
+
+/* button premium */
+.login-btn{
+  border-radius: 12px;
+  padding: 12px;
+  font-weight: 600;
+
+  background: linear-gradient(135deg, #4b5563, #111827);
+  color:white;
+
+  transition: 0.3s ease;
+}
+
+.login-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  color:white;
+}
+
+
+    

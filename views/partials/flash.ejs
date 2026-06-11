@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/stylesheets/flash.css">
+<div class="flash-container">
+
+  <% if (success) { %>
+    <div class="flash-toast success">
+      <%= success %>
+    </div>
+  <% } %>
+
+  <% if (error) { %>
+    <div class="flash-toast error">
+      <%= error %>
+    </div>
+  <% } %>
+
+</div>

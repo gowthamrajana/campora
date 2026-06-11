@@ -1,28 +1,100 @@
 <% layout('layouts/boilerplate')%>
+<link rel="stylesheet" href="/stylesheets/index.css">
 
-<h1>All Campgrounds </h1>
+<div class="map-section">
+  <div class="map-header" style="font-size:1.9rem; font-weight:800; letter-spacing:0.5px;">
+    📍 All Campgrounds Map
+  </div>
 
-<div>
-  <a href="/campgrounds/new">add campgrounds </a>
+  <div id="map"></div>
 </div>
 
-<% for(let campground of campgrounds){ %>
-  <div class="card" mb-3>
-    <div class="row">
-    <div class="col-md-4">
-    <img class="img-fluid" alt="" src="<%= campground.image %>" >
-  </div>
-  <div class="col-md-8">
-    <div class="card-body">
-      <h5 class="card-title"><%= campground.title %></h5>
-      <p class="card-tex"><%= campground.description %></p>
-      <p class="card-tex">
-        <small class="text-muted"><%= campground.location %></small>
-      </p>
-      <a class="btn btn-primary" href="/campgrounds/<%= campground._id %>">View <%= campground.title %></a>
-    </div>
-  </div>
-    </div>
-  </div>
-  <% } %>
+<h1>All Campgrounds</h1>
 
+
+
+<% for(let campground of campgrounds){ %>
+
+  <div class="card mb-3">
+    <div class="row">
+
+      <div class="col-md-4">
+
+        <% if (campground.images && campground.images.length > 0) { %>
+          <img class="img-fluid campground-img" alt="" src="<%= campground.images[0].url %>">
+        <% } else { %>
+          <img class="img-fluid campground-img" alt="" src="https://via.placeholder.com/400x300">
+        <% } %>
+
+      </div>
+
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= campground.title %></h5>
+          <p class="card-text"><%= campground.description %></p>
+          <p class="card-text">
+            <small class="text-muted"> 📍<%= campground.location %></small>
+          </p>
+          <a class="btn btn-primary" href="/campgrounds/<%= campground._id %>">
+            View
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<% } %>
+
+<% if(totalPages > 1) { %>
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center mt-5">
+
+        <% if(currentPage > 1) { %>
+            <li class="page-item">
+                <a class="page-link"
+                   href="/campgrounds?page=<%= currentPage - 1 %>">
+                   Previous
+                </a>
+            </li>
+        <% } %>
+
+        <% for(let i = 1; i <= totalPages; i++) { %>
+            <li class="page-item <%= currentPage === i ? 'active' : '' %>">
+                <a class="page-link"
+                   href="/campgrounds?page=<%= i %>">
+                   <%= i %>
+                </a>
+            </li>
+        <% } %>
+
+        <% if(currentPage < totalPages) { %>
+            <li class="page-item">
+                <a class="page-link"
+                   href="/campgrounds?page=<%= currentPage + 1 %>">
+                   Next
+                </a>
+            </li>
+        <% } %>
+
+    </ul>
+</nav>
+<% } %>
+
+<%- "<script>" %>
+  const maptilerApiKey = "<%- process.env.MAPTILER_API_KEY %>";
+  const campgrounds = {
+    type: "FeatureCollection",
+    features: <%- JSON.stringify(
+      allCampgrounds.map(campground => ({
+        type: "Feature",
+        geometry: campground.geometry,
+        properties: {
+          popUpMarkup: campground?.properties?.popUpMarkup
+        }
+      }))
+    ) %>
+  };
+<%- "</script>" %>
+
+<script src="/javascripts/clusterMap.js"></script>

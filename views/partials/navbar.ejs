@@ -1,15 +1,82 @@
-<nav class="navbar sticky-top navbar-expand-lg bg-dark navbar-dark">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark shadow-sm" 
+     style="background: rgba(33, 37, 41, 0.95); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1030; border-bottom: 1px solid rgba(255,255,255,0.05);">
+  
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">YelpCamp</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand campora-logo" href="/">
+      <span class="logo-icon">⛺</span><span class="logo-text">Campora</span>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" href="/">Home</a>
-        <a class="nav-link" href="/campgrounds">Campgrounds</a>
-        <a class="nav-link" href="/campgrounds/new">New Campground</a>
+        <a class="nav-link px-3 custom-nav-link" href="/campgrounds">Campgrounds</a>
+        <a class="nav-link px-3 custom-nav-link" href="/campgrounds/new">New Campground</a>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <% if(!currentUser){ %>
+        <a class="nav-link px-3 custom-nav-link" href="/login">Login</a>
+        <a class="nav-link px-3 custom-nav-link" href="/register">Register</a>
+        <% }else{ %>
+        <a class="nav-link px-3 custom-nav-link" href="/logout">Logout</a>
+        <% } %>
       </div>
     </div>
   </div>
 </nav>
+
+<style>
+    .custom-nav-link {
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    
+    .custom-nav-link:hover {
+        color: #fff !important;
+        transform: translateY(-1px);
+    }
+
+    .custom-nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 5px;
+        left: 50%;
+        background-color: #ffffff;
+        transition: all 0.3s ease;
+    }
+
+    .custom-nav-link:hover::after {
+        width: 50%;
+        left: 25%;
+    }
+    
+    .campora-logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+.logo-icon{
+    font-size: 1.6rem;
+    filter: drop-shadow(0 6px 10px rgba(0,0,0,0.3));
+}
+
+.logo-text{
+    background: linear-gradient(90deg, #ffffff, #94a3b8, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+
+.campora-logo:hover .logo-text{
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.3));
+    transition: 0.3s ease;
+}
+</style>

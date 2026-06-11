@@ -1,0 +1,47 @@
+<% layout('layouts/boilerplate')%>
+<link rel="stylesheet" href="/stylesheets/login.css">
+
+<div class="login-page">
+
+    <div class="login-card-wrapper">
+
+        <div class="card login-card shadow">
+
+            <img src="https://images.unsplash.com/photo-1571863533956-01c88e79957e?auto=format&fit=crop&w=1200&q=80"
+                class="card-img-top login-img" />
+
+            <div class="card-body p-4">
+
+                <h4 class="card-title text-center mb-4">Welcome Back 👋</h4>
+
+                <form action="/login" method="POST" class="validated-form" novalidate>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="username">Username</label>
+                        <input class="form-control input-modern" type="text" id="username" name="username" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="password">Password</label>
+                        <input class="form-control input-modern" type="password" id="password" name="password" required>
+                    </div>
+
+                    <button class="btn login-btn w-100">
+                        Login
+                    </button>
+                    <div class="mt-3 text-center">
+                      <p class="text-muted small">
+                          Don't have an account? 
+                          <a href="/register" class="text-decoration-none">Register here</a>
+                      </p>
+                  </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
