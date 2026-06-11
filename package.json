@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
@@ -17,18 +18,15 @@
     "dotenv": "^17.4.2",
     "ejs": "^5.0.1",
     "ejs-mate": "^4.0.0",
-    "env": "^0.0.2",
     "express": "^4.21.2",
     "express-mongo-sanitize": "^2.2.0",
     "express-session": "^1.19.0",
     "helmet": "^8.2.0",
-    "install": "^0.13.0",
     "joi": "^18.2.1",
     "method-override": "^3.0.0",
     "mongoose": "^9.7.0",
     "multer": "^2.1.1",
     "multer-storage-cloudinary": "^4.0.0",
-    "npm": "^11.16.0",
     "passport": "^0.7.0",
     "passport-local-mongoose": "^9.1.0",
     "sanitize-html": "^2.17.4"
